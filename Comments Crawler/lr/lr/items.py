@@ -4,15 +4,15 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
+
+import scrapy
 from scrapy.item import Item, Field
 
-import sys
-if "C:\\Python27" not in sys.path:
-    sys.path.append("C:\\Python27")
-
-
-class LrrytasItem(Item):
+class LrItem(scrapy.Item):
     name = Field()
     ip = Field()
+    date = Field()
     time = Field()
+    vote_up = Field()
+    vote_down = Field()
     comment = Field()
