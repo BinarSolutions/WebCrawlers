@@ -20,7 +20,7 @@ ITEM_PIPELINES = ['lr.pipelines.MongoDBPipeline', ]
 MONGODB_SERVER = "213.197.167.222"
 MONGODB_PORT = 27317
 MONGODB_DB = "SPYDERS"
-MONGODB_COLLECTION = "LRytas_1"
+MONGODB_COLLECTION = "LRytas_2"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
