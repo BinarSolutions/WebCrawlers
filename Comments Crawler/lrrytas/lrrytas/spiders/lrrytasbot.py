@@ -2,7 +2,7 @@ from scrapy.spiders import Spider
 from scrapy.selector import Selector
 from scrapy.http import HtmlResponse
 from lrrytas.items import LrrytasItem
-from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
 
@@ -12,7 +12,7 @@ class LrrytasSpider(Spider):
     start_urls = ["http://www.lrytas.lt/?id=14355922181434706286&view=6"]
     rules = (
        Rule(LinkExtractor(allow=r'Items'), callback='parse', follow=True),
-	   Rule(LinkExtractor(restrict_xpaths=('//*[contains(@class, "str-pages-div")][1]/*')), callback='parse_comments_follow_next_page', follow=True)
+	   Rule(LinkExtractor(restrict_xpaths=('//*[contains(@class, "str-pages-div")][1]/*')), callback="parse_comments_follow_next_page")
 )
     def parse(self, response):
      sel = Selector(response)

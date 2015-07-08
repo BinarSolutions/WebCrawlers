@@ -12,7 +12,7 @@ class LrrytasbotCrawlerSpider(CrawlSpider):
     start_urls = ['http://www.lrytas.lt/?id=14355922181434706286&view=6']
 
     rules = (
-        Rule(LinkExtractor(allow=r'/?id=14355922181434706286&view=6&p=2'), callback="parse_lel"),
+        Rule(LinkExtractor(allow=(r'/?id=14355922181434706286&view=6&p=2')), callback="parse_lel", follow=True),
     )
 
     def parse_lel(self, response):
@@ -26,4 +26,4 @@ class LrrytasbotCrawlerSpider(CrawlSpider):
        item['ip'] = node[i].xpath('*/*/div[contains(@class, "comment-ip")]/text()').extract()[0]
        item['time'] = node[i].xpath('*/*/div[contains(@class, "comment-time")]/text()').extract()[0]
        item ['comment'] = site[i + 1].xpath('descendant-or-self::text()').extract()[0]
-       yield item
+     yield item
